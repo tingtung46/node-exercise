@@ -1,9 +1,9 @@
-const fs = require("node:fs");
+const express = require("express");
+const app = express();
 
-fs.readFile("/root/repos/node-exercise/test.txt", "utf8", (err, data) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-  console.log(data);
+app.get("/", (req, res) => res.send("Hello, world!"));
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`My first Express app - listening on port ${PORT}!`);
 });
